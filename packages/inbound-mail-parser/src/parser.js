@@ -68,14 +68,14 @@ class Parse {
    */
   getRawEmail(callback) {
     const mailparser = new MailParser();
-    const { rawEmail } = this.payload;
+    const { email } = this.payload;
 
     if (!this.hasRawEmail()) {
       return callback(null);
     }
 
     mailparser.on('end', callback);
-    mailparser.write(rawEmail);
+    mailparser.write(email);
     mailparser.end();
   }
 
